@@ -74,6 +74,7 @@ main {
 }
 
 .console-icon {
+    font-family: var(--font);
     font-size: var(--s3);
     margin: 0px;
 }
