@@ -1,0 +1,157 @@
+@font-face {
+    font-family: 'MapleMono';
+    src: url('../assets/fonts/MapleMono-TTF/MapleMono-Light.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --c0: #080808;
+    --c1: #eeeeee;
+    --font: 'MapleMono', sans-serif;
+    --s1: 4rem;
+    --s2: 2.5rem;
+    --s3: 2rem;
+}
+
+@keyframes blink {
+
+    from,
+    to {
+        color: transparent;
+    }
+
+    50% {
+        color: var(--c1);
+    }
+}
+
+/* page */
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: var(--c0);
+    color: var(--c1);
+    font-family: var(--font);
+    user-select: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    position: absolute;
+    left: 2%;
+    top: 3%;
+    width: 50%;
+    height: 80%;
+}
+
+/* title */
+.title-container {
+    position: relative;
+    display: flex;
+    font-family: var(--font);
+    color: var(--c1);
+    background-color: var(--c0);
+    font-size: var(--s1);
+}
+
+/* console bar */
+.console-container {
+    font-size: var(--s3);
+    font-family: var(--font);
+    color: var(--c1);
+    background-color: var(--c0);
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.console-icon {
+    font-size: var(--s3);
+    margin: 0px;
+}
+
+#console-bar {
+    width: 100%;
+}
+
+input[type="search"] {
+    font-size: var(--s3);
+    font-family: var(--font);
+    color: var(--c1);
+    background-color: var(--c0);
+    padding: 0px;
+    border: none;
+    border-radius: 0%;
+    color: var(--c1);
+    outline: none;
+    width: auto;
+    min-width: 0px;
+    max-width: 100%;
+}
+
+input[type="search"]::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 100%;
+    background-color: var(--c1);
+    animation: blink 1s step-start infinite;
+    pointer-events: none;
+}
+
+input[type="search"]:focus {
+    outline: none;
+}
+
+input[type="search"]::selection {
+    background-color: transparent;
+}
+
+/* caret */
+.caret {
+    background: var(--c0);
+    color: var(--c1);
+    font-family: var(--font);
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /* animation: blink 0.5s step-end infinite; */
+}
+
+/* weather */
+#weather-box {
+    position: absolute;
+    right: 2%;
+    top: 2%;
+    background-color: var(--c0);
+    color: var(--c1);
+    overflow: auto;
+    font-family: monospace;
+    font-size: var(--s3);
+    border: none;
+    z-index: 1000;
+}
+
+/* time */
+#time-box {
+    position: absolute;
+    right: 2%;
+    bottom: 3%;
+    background-color: var(--c0);
+    color: var(--c1);
+    overflow: auto;
+    font-family: var(--font);
+    font-size: var(--s2);
+    white-space: pre;
+    border: none;
+    z-index: 1000;
+}
